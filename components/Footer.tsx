@@ -11,7 +11,7 @@ export default function Footer({ t, dark }: FooterProps) {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center w-7 h-7 rounded-md font-extrabold text-[11px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
-          <span className="text-[12px] font-extrabold" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,backgroundClip:"text",WebkitBackgroundClip:"text",color:"transparent",WebkitTextFillColor:"transparent"}}>PARALAN.TRADE</span>
+          <span className="gradient-text text-[12px] font-extrabold" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`}}>PARALAN.TRADE</span>
           <span className="text-[10px]" style={{color:t.dim}}>© {new Date().getFullYear()}</span>
         </div>
         <div className="flex flex-wrap gap-3 sm:gap-4 text-[11px]">
