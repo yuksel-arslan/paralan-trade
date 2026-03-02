@@ -1,0 +1,59 @@
+// @ts-nocheck
+"use client";
+import { Icon, icons } from "./icons";
+import { Logo } from "./Logo";
+import { Theme, mono, timeAgo } from "./theme";
+
+interface HeaderProps {
+  t: Theme; dark: boolean; setDark: (v:boolean)=>void;
+  lastUpdate: Date|null; refreshRate: number; setRefreshRate: (v:number)=>void;
+  bankroll: number; setBankroll: (v:number)=>void;
+  clobCount: number;
+}
+
+export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setRefreshRate, bankroll, setBankroll, clobCount }: HeaderProps) {
+  return (
+    <div style={{position:"sticky",top:0,zIndex:50,background:t.header,backdropFilter:"blur(20px)",borderBottom:`1px solid ${t.border}`}}>
+      <div className="max-w-[1280px] mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between">
+        {/* Left: Logo + Title */}
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <Logo size={32} dark={dark}/>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <h1 className="text-base sm:text-lg font-extrabold m-0 tracking-tight" style={{background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Paralan</h1>
+              <span className="hidden sm:inline text-[11px] font-medium px-1.5 py-0.5 rounded" style={{color:t.dim,border:`1px solid ${t.border}`,letterSpacing:"0.04em"}}>PREDICTION INTELLIGENCE</span>
+            </div>
+            <div className="text-[9px] sm:text-[10px] flex items-center gap-1.5 mt-0.5" style={{color:t.dim,fontFamily:mono}}>
+              <Icon d={icons.signal} size={10} color={t.accent}/>{lastUpdate?`${timeAgo(lastUpdate)} önce`:"..."} · {refreshRate}s · CLOB: {clobCount}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Controls */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Refresh rate - hidden on mobile */}
+          <select value={refreshRate} onChange={e=>setRefreshRate(Number(e.target.value))} className="hidden sm:block" style={{padding:"5px 8px",borderRadius:7,border:`1px solid ${t.border}`,background:t.card,color:t.text,fontSize:10,fontFamily:mono,cursor:"pointer",outline:"none"}}>
+            <option value={5}>5s</option><option value={10}>10s</option><option value={30}>30s</option><option value={60}>60s</option>
+          </select>
+
+          {/* Bankroll - hidden on mobile */}
+          <div className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-lg" style={{background:t.input,border:`1px solid ${t.border}`}}>
+            <Icon d={icons.wallet} size={13} color={t.dim}/>
+            <span style={{fontSize:10,color:t.dim}}>$</span>
+            <input type="number" value={bankroll} onChange={e=>setBankroll(Math.max(10,Number(e.target.value)))} style={{width:50,background:"transparent",border:"none",color:t.text,fontSize:12,fontFamily:mono,fontWeight:600,outline:"none",textAlign:"right"}}/>
+          </div>
+
+          {/* Live badge */}
+          <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold" style={{background:t.accentSoft,color:t.accent}}>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:t.accent}}/> <span className="hidden sm:inline">CANLI</span><span className="sm:hidden">●</span>
+          </div>
+
+          {/* Theme toggle */}
+          <button onClick={()=>setDark(!dark)} className="w-9 h-9 sm:w-9 sm:h-9 min-w-[36px] min-h-[36px] rounded-lg flex items-center justify-center cursor-pointer" style={{border:`1px solid ${t.border}`,background:t.surface,color:t.text}}>
+            {dark?<Icon d={icons.sun} size={17}/>:<Icon d={icons.moon} size={17}/>}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
