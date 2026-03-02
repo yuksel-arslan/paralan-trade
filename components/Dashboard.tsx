@@ -141,8 +141,8 @@ export default function PolymarketTrader() {
     try {
       const ctrl=new AbortController(); const to=setTimeout(()=>ctrl.abort(),8000);
       const [mRes,eRes]=await Promise.all([
-        fetch(`${GAMMA}/markets?limit=100&active=true&closed=false&order=volume24hr&ascending=false`,{signal:ctrl.signal}),
-        fetch(`${GAMMA}/events?limit=50&active=true&closed=false&order=volume24hr&ascending=false`,{signal:ctrl.signal}),
+        fetch(`/api/markets?limit=100&active=true&closed=false&order=volume24hr&ascending=false`,{signal:ctrl.signal}),
+        fetch(`/api/events?limit=50&active=true&closed=false&order=volume24hr&ascending=false`,{signal:ctrl.signal}),
       ]);
       clearTimeout(to);
       if(!mRes.ok||!eRes.ok) throw new Error("API hatası");
@@ -163,8 +163,8 @@ export default function PolymarketTrader() {
         const topTokens=processed.filter(m=>m.tokenId).slice(0,5);
         const ctrl=new AbortController(); const timeout=setTimeout(()=>ctrl.abort(),4000);
         const results=await Promise.allSettled(topTokens.flatMap(m=>[
-          fetch(`${CLOB}/midpoint?token_id=${m.tokenId}`,{signal:ctrl.signal}).then(r=>r.ok?r.json():null).then(d=>({id:m.id,type:"mid",val:d})),
-          fetch(`${CLOB}/spread?token_id=${m.tokenId}`,{signal:ctrl.signal}).then(r=>r.ok?r.json():null).then(d=>({id:m.id,type:"spread",val:d})),
+          fetch(`/api/clob?endpoint=midpoint&token_id=${m.tokenId}`,{signal:ctrl.signal}).then(r=>r.ok?r.json():null).then(d=>({id:m.id,type:"mid",val:d})),
+          fetch(`/api/clob?endpoint=spread&token_id=${m.tokenId}`,{signal:ctrl.signal}).then(r=>r.ok?r.json():null).then(d=>({id:m.id,type:"spread",val:d})),
         ]));
         clearTimeout(timeout);
         results.forEach(r=>{if(r.status==="fulfilled"&&r.value){const{id,type,val}=r.value;if(!clobMap[id])clobMap[id]={mid:null,spread:null};if(type==="mid"&&val)clobMap[id].mid=Number(val.mid||0);if(type==="spread"&&val)clobMap[id].spread=Number(val.spread||0);}});
