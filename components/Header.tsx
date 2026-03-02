@@ -18,7 +18,7 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
         <div className="flex items-center gap-2 sm:gap-4 min-w-0">
           {/* Logo + brand group */}
           <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
-            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-extrabold text-[13px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-extrabold text-[13px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:dark?"#000":"#fff",letterSpacing:"-0.04em"}}>PPI</div>
             <div className="min-w-0">
               <h1 className="gradient-text text-[14px] sm:text-[22px] font-extrabold m-0 leading-none whitespace-nowrap" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`}}>PARALAN.TRADE</h1>
               <div className="text-[6.5px] sm:text-[10px] font-semibold leading-none mt-0.5 sm:mt-1 whitespace-nowrap" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.12em"}}>PREDICTION INTELLIGENCE</div>
