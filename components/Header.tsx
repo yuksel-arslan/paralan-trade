@@ -15,17 +15,17 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
     <div style={{position:"sticky",top:0,zIndex:50,background:t.header,backdropFilter:"blur(20px)",borderBottom:`1px solid ${t.border}`}}>
       <div className="max-w-[1280px] mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between">
         {/* Left: Brand + status */}
-        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0">
           {/* Logo + brand group */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-extrabold text-[15px] sm:text-[17px]" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
-            <div>
-              <h1 className="text-[18px] sm:text-[22px] font-extrabold m-0 leading-none" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>PARALAN.TRADE</h1>
-              <div className="text-[8.5px] sm:text-[10px] font-semibold leading-none mt-1" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.12em"}}>PREDICTION INTELLIGENCE</div>
+          <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-extrabold text-[13px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
+            <div className="min-w-0">
+              <h1 className="text-[14px] sm:text-[22px] font-extrabold m-0 leading-none whitespace-nowrap" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>PARALAN.TRADE</h1>
+              <div className="text-[6.5px] sm:text-[10px] font-semibold leading-none mt-0.5 sm:mt-1 whitespace-nowrap" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.12em"}}>PREDICTION INTELLIGENCE</div>
             </div>
           </div>
-          {/* Status info — separate from brand */}
-          <div className="hidden sm:flex items-center gap-1.5 text-[9px] px-2 py-1 rounded-md" style={{color:t.dim,fontFamily:mono,background:t.input,border:`1px solid ${t.border}`}}>
+          {/* Status info — desktop only */}
+          <div className="hidden lg:flex items-center gap-1.5 text-[9px] px-2 py-1 rounded-md" style={{color:t.dim,fontFamily:mono,background:t.input,border:`1px solid ${t.border}`}}>
             <Icon d={icons.signal} size={9} color={t.accent}/>{lastUpdate?`${timeAgo(lastUpdate)} önce`:"..."} · {refreshRate}s · CLOB: {clobCount}
           </div>
         </div>
