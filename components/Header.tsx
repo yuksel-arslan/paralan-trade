@@ -18,8 +18,8 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
           <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-extrabold text-[15px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
           <div className="min-w-0">
-            <h1 className="text-[15px] sm:text-[18px] font-extrabold m-0 leading-none" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",letterSpacing:"-0.02em"}}>PARALAN.TRADE</h1>
-            <div className="text-[9px] sm:text-[10px] font-semibold leading-none mt-1" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.14em"}}>PREDICTION INTELLIGENCE</div>
+            <h1 className="text-[18px] sm:text-[22px] font-extrabold m-0 leading-none" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>PARALAN.TRADE</h1>
+            <div className="text-[8.5px] sm:text-[10px] font-semibold leading-none mt-1" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.12em"}}>PREDICTION INTELLIGENCE</div>
             <div className="text-[8px] sm:text-[9px] flex items-center gap-1.5 mt-1" style={{color:t.dim,fontFamily:mono}}>
               <Icon d={icons.signal} size={9} color={t.accent}/>{lastUpdate?`${timeAgo(lastUpdate)} önce`:"..."} · {refreshRate}s · CLOB: {clobCount}
             </div>
