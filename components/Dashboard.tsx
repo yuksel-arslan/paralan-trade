@@ -2,9 +2,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
-const GAMMA = "https://gamma-api.polymarket.com";
-const CLOB = "https://clob.polymarket.com";
-
 // ─── Heroicons (inline SVG, 24px outline) ───
 const Icon = ({d,size=20,color="currentColor",sw=1.5,...props}) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={sw} stroke={color} width={size} height={size} {...props}>
