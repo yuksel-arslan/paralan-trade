@@ -86,3 +86,11 @@ input[type="range"] {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Gradient text for brand name — must use !important to survive Tailwind layers */
+.gradient-text {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
