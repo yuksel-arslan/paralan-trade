@@ -1,7 +1,6 @@
 // @ts-nocheck
 "use client";
 import { Icon, icons } from "./icons";
-import { Logo } from "./Logo";
 import { Theme, mono, timeAgo } from "./theme";
 
 interface HeaderProps {
@@ -15,16 +14,14 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
   return (
     <div style={{position:"sticky",top:0,zIndex:50,background:t.header,backdropFilter:"blur(20px)",borderBottom:`1px solid ${t.border}`}}>
       <div className="max-w-[1280px] mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between">
-        {/* Left: Logo + Title */}
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <Logo size={32} dark={dark}/>
+        {/* Left: PPI logo + Brand text */}
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-extrabold text-[15px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
           <div className="min-w-0">
-            <div className="flex items-center gap-1.5">
-              <h1 className="text-base sm:text-lg font-extrabold m-0 tracking-tight" style={{background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Paralan</h1>
-              <span className="hidden sm:inline text-[11px] font-medium px-1.5 py-0.5 rounded" style={{color:t.dim,border:`1px solid ${t.border}`,letterSpacing:"0.04em"}}>PREDICTION INTELLIGENCE</span>
-            </div>
-            <div className="text-[9px] sm:text-[10px] flex items-center gap-1.5 mt-0.5" style={{color:t.dim,fontFamily:mono}}>
-              <Icon d={icons.signal} size={10} color={t.accent}/>{lastUpdate?`${timeAgo(lastUpdate)} önce`:"..."} · {refreshRate}s · CLOB: {clobCount}
+            <h1 className="text-[15px] sm:text-[18px] font-extrabold m-0 leading-none" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",letterSpacing:"-0.02em"}}>PARALAN.TRADE</h1>
+            <div className="text-[9px] sm:text-[10px] font-semibold leading-none mt-1" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.14em"}}>PREDICTION INTELLIGENCE</div>
+            <div className="text-[8px] sm:text-[9px] flex items-center gap-1.5 mt-1" style={{color:t.dim,fontFamily:mono}}>
+              <Icon d={icons.signal} size={9} color={t.accent}/>{lastUpdate?`${timeAgo(lastUpdate)} önce`:"..."} · {refreshRate}s · CLOB: {clobCount}
             </div>
           </div>
         </div>
