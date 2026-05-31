@@ -2,6 +2,7 @@
 "use client";
 import { Icon, icons } from "./icons";
 import { Theme, mono, fmt$, pct, calcEV, kellyFraction, gradeRank } from "./theme";
+import { polymarketUrl } from "./config";
 
 interface MarketDetailProps {
   t: Theme; dark: boolean; m: any;
@@ -43,7 +44,7 @@ export default function MarketDetail({ t, dark, m, edgeEstimates, setEdgeEstimat
               <div className="flex gap-1.5 flex-wrap mt-1">{[{ok:isEV,l:`EV:${(ev*100).toFixed(1)}%`},{ok:isGrade,l:`Risk:${m.riskGrade.g}`},{ok:isLiq,l:`Lik:${fmt$(m.liquidity)}`}].map(c=><span key={c.l} className="text-[9px] font-semibold px-1.5 py-0.5 rounded font-mono" style={{background:c.ok?`${t.green}18`:`${t.red}18`,color:c.ok?t.green:t.red}}>{c.ok?"✓":"✗"} {c.l}</span>)}</div>
             </div>
             {ok&&<div className="p-1.5 rounded-md" style={{background:dark?"rgba(255,255,255,0.03)":"rgba(0,0,0,0.02)"}}><div className="text-[9px]" style={{color:t.dim}}>Half-Kelly (${bankroll})</div><div className="text-sm font-bold font-mono" style={{color:t.green}}>${bet.toFixed(0)} → ${profit.toFixed(0)} kâr</div></div>}
-            <a href={`https://polymarket.com/event/${m.slug}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg text-[11px] font-bold no-underline font-sans min-h-[44px] sm:min-h-0" style={{background:ok?t.accent:(dark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.05)"),color:ok?"#000":t.dim,opacity:ok?1:0.6}}>{ok?"Open Trade":"Inspect"} <Icon d={icons.arrowRight} size={13} color={ok?"#000":t.dim}/></a>
+            <a href={polymarketUrl(m.slug)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-lg text-[11px] font-bold no-underline font-sans min-h-[44px] sm:min-h-0" style={{background:ok?t.accent:(dark?"rgba(255,255,255,0.06)":"rgba(0,0,0,0.05)"),color:ok?"#000":t.dim,opacity:ok?1:0.6}}>{ok?"Open Trade":"Inspect"} <Icon d={icons.arrowRight} size={13} color={ok?"#000":t.dim}/></a>
           </div>
         </div>
       </div>

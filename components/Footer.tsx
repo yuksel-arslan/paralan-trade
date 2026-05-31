@@ -1,6 +1,8 @@
 // @ts-nocheck
 "use client";
 import { Theme } from "./theme";
+import { Icon, icons } from "./icons";
+import { SOCIAL, SITE } from "./config";
 
 interface FooterProps { t: Theme; dark: boolean; }
 
@@ -10,15 +12,16 @@ export default function Footer({ t, dark }: FooterProps) {
     <div className="mt-3 p-3 sm:p-4 rounded-xl" style={{background:t.card,border:`1px solid ${t.border}`}}>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <div className="flex items-center justify-center w-7 h-7 rounded-md font-extrabold text-[11px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
+          <img src="/brand/paralan-icon.svg" alt="Paralan" width={28} height={28} className="w-7 h-7 shrink-0"/>
           <span className="gradient-text text-[12px] font-extrabold" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`}}>PARALAN.TRADE</span>
           <span className="text-[10px]" style={{color:t.dim}}>© {new Date().getFullYear()}</span>
         </div>
-        <div className="flex flex-wrap gap-3 sm:gap-4 text-[11px]">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[11px]">
+          <a href={SOCIAL.telegram} target="_blank" rel="noopener noreferrer" className="no-underline flex items-center gap-1 font-semibold" style={{color:t.accent}}><Icon d={icons.paperAirplane} size={13} color={t.accent}/>Telegram</a>
           <a href="/privacy" className="no-underline" style={{color:t.dim,borderBottom:`1px solid ${t.border}`}}>Privacy Policy</a>
           <a href="/terms" className="no-underline" style={{color:t.dim,borderBottom:`1px solid ${t.border}`}}>Terms of Use</a>
           <a href="/disclaimer" className="no-underline" style={{color:t.dim,borderBottom:`1px solid ${t.border}`}}>Disclaimer</a>
-          <a href="mailto:hello@paralan.trade" className="no-underline" style={{color:t.dim,borderBottom:`1px solid ${t.border}`}}>Contact</a>
+          <a href={`mailto:${SITE.contactEmail}`} className="no-underline" style={{color:t.dim,borderBottom:`1px solid ${t.border}`}}>Contact</a>
         </div>
       </div>
       <div className="mt-2.5 pt-2.5 text-[10px] leading-relaxed" style={{borderTop:`1px solid ${t.border}`,color:`${t.dim}90`}}>

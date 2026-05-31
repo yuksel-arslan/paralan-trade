@@ -41,6 +41,23 @@ export default function PolymarketTrader() {
   const [edgeEstimates,setEdgeEstimates]=useState({});
   const [showSafePanel,setShowSafePanel]=useState(false);
   const [refreshRate,setRefreshRate]=useState(10);
+  const [hydrated,setHydrated]=useState(false);
+
+  // ─── Persistence: load saved prefs on mount ───
+  useEffect(()=>{
+    try{
+      const ls=window.localStorage;
+      const d=ls.getItem("pl_dark"); if(d!==null) setDark(d==="1");
+      const w=ls.getItem("pl_watchlist"); if(w) setWatchlist(JSON.parse(w));
+      const b=ls.getItem("pl_bankroll"); if(b) setBankroll(Number(b));
+      const r=ls.getItem("pl_refresh"); if(r) setRefreshRate(Number(r));
+    }catch(e){}
+    setHydrated(true);
+  },[]);
+  useEffect(()=>{if(hydrated)try{window.localStorage.setItem("pl_dark",dark?"1":"0")}catch(e){}},[dark,hydrated]);
+  useEffect(()=>{if(hydrated)try{window.localStorage.setItem("pl_watchlist",JSON.stringify(watchlist))}catch(e){}},[watchlist,hydrated]);
+  useEffect(()=>{if(hydrated)try{window.localStorage.setItem("pl_bankroll",String(bankroll))}catch(e){}},[bankroll,hydrated]);
+  useEffect(()=>{if(hydrated)try{window.localStorage.setItem("pl_refresh",String(refreshRate))}catch(e){}},[refreshRate,hydrated]);
 
   const fetchData = useCallback(async () => {
     try {

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 462 116" width="462" height="116" role="img" aria-label="PARALAN.TRADE — Prediction Intelligence">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F7BF7"></stop>
+      <stop offset="52%" stop-color="#24C8E6"></stop>
+      <stop offset="100%" stop-color="#2FE6A6"></stop>
+    </linearGradient>
+    
+  </defs>
+  
+  <g transform="translate(8,14) scale(0.88)">
+    <rect width="100" height="100" rx="22" fill="url(#pg)"></rect>
+    <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M38 22 L50 33 L62 22"></path>
+      <path d="M38 22 L50 33 L62 22" transform="rotate(120 50 50)"></path>
+      <path d="M38 22 L50 33 L62 22" transform="rotate(240 50 50)"></path>
+    </g>
+    <circle cx="50" cy="50" r="6.5" fill="#ffffff"></circle>
+  </g>
+  
+  <text class="wm" x="124" y="58" textLength="324" lengthAdjust="spacing">
+    <tspan fill="#ffffff">PARALAN</tspan><tspan fill="#2FE6A6">.TRADE</tspan>
+  </text>
+  <text class="tg" x="124" y="86" textLength="324" lengthAdjust="spacing" fill="#7E8B99">PREDICTION INTELLIGENCE</text>
+</svg>

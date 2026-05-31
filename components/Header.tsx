@@ -2,6 +2,7 @@
 "use client";
 import { Icon, icons } from "./icons";
 import { Theme, mono, timeAgo } from "./theme";
+import { SOCIAL } from "./config";
 
 interface HeaderProps {
   t: Theme; dark: boolean; setDark: (v:boolean)=>void;
@@ -18,7 +19,7 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
         <div className="flex items-center gap-2 sm:gap-4 min-w-0">
           {/* Logo + brand group */}
           <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
-            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-md sm:rounded-lg font-extrabold text-[13px] sm:text-[17px] shrink-0" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`,color:"#000",letterSpacing:"-0.04em"}}>PPI</div>
+            <img src="/brand/paralan-icon.svg" alt="Paralan" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 shrink-0"/>
             <div className="min-w-0">
               <h1 className="gradient-text text-[14px] sm:text-[22px] font-extrabold m-0 leading-none whitespace-nowrap" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`}}>PARALAN.TRADE</h1>
               <div className="text-[6.5px] sm:text-[10px] font-semibold leading-none mt-0.5 sm:mt-1 whitespace-nowrap" style={{color:t.dim,fontFamily:mono,letterSpacing:"0.12em"}}>PREDICTION INTELLIGENCE</div>
@@ -44,9 +45,14 @@ export default function Header({ t, dark, setDark, lastUpdate, refreshRate, setR
             <input type="number" value={bankroll} onChange={e=>setBankroll(Math.max(10,Number(e.target.value)))} style={{width:50,background:"transparent",border:"none",color:t.text,fontSize:12,fontFamily:mono,fontWeight:600,outline:"none",textAlign:"right"}}/>
           </div>
 
+          {/* Telegram */}
+          <a href={SOCIAL.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram kanalı" className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-lg flex items-center justify-center cursor-pointer" style={{border:`1px solid ${t.border}`,background:t.accentSoft,color:t.accent}}>
+            <Icon d={icons.paperAirplane} size={16} color={t.accent}/>
+          </a>
+
           {/* Live badge */}
-          <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold" style={{background:t.accentSoft,color:t.accent}}>
-            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:t.accent}}/> <span className="hidden sm:inline">CANLI</span><span className="sm:hidden">●</span>
+          <div className="hidden sm:flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold" style={{background:t.accentSoft,color:t.accent}}>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:t.accent}}/> <span>CANLI</span>
           </div>
 
           {/* Theme toggle */}
