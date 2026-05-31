@@ -27,22 +27,15 @@ export default function Image() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={MARK_URL} width={104} height={104} alt="" style={{ borderRadius: 24 }} />
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                fontSize: 64,
-                fontWeight: 800,
-                color: "#e4e5ea",
-                letterSpacing: -2,
-                lineHeight: 1,
-              }}
-            >
-              PARALAN.TRADE
+            <div style={{ display: "flex", fontSize: 64, fontWeight: 800, letterSpacing: -2, lineHeight: 1 }}>
+              <div style={{ color: "#e4e5ea" }}>PARALAN</div>
+              <div style={{ color: "#2FE6A6" }}>.TRADE</div>
             </div>
             <div
               style={{
                 fontSize: 24,
                 fontWeight: 600,
-                color: "#6b6f82",
+                color: "#7E8B99",
                 letterSpacing: 6,
                 marginTop: 10,
               }}

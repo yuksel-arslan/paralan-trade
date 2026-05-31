@@ -3,6 +3,7 @@
 import { Theme } from "./theme";
 import { Icon, icons } from "./icons";
 import { SOCIAL, SITE } from "./config";
+import Wordmark from "./Wordmark";
 
 interface FooterProps { t: Theme; dark: boolean; }
 
@@ -12,8 +13,7 @@ export default function Footer({ t, dark }: FooterProps) {
     <div className="mt-3 p-3 sm:p-4 rounded-xl" style={{background:t.card,border:`1px solid ${t.border}`}}>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <img src="/brand/paralan-icon.svg" alt="Paralan" width={28} height={28} className="w-7 h-7 shrink-0"/>
-          <span className="gradient-text text-[12px] font-extrabold" style={{fontFamily:mono,background:`linear-gradient(135deg,${t.accent},${t.blue})`}}>PARALAN.TRADE</span>
+          <Wordmark t={t} markClass="w-7 h-7" nameClass="text-[12px]" showTagline={false} gap="gap-2"/>
           <span className="text-[10px]" style={{color:t.dim}}>© {new Date().getFullYear()}</span>
         </div>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[11px]">
