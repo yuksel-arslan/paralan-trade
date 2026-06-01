@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s · Paralan.trade",
   },
   description:
-    "Tahmin piyasaları için gerçek zamanlı analiz panosu. Risk skoru, arbitraj tarayıcı, Kelly Criterion hesaplayıcı ve canlı CLOB fiyatları. Polymarket verisiyle edge'ini bul. Ücretsiz.",
+    "Tahmin piyasaları için gerçek zamanlı analiz panosu. Risk skoru, arbitraj tarayıcı, Kelly Criterion hesaplayıcı ve canlı CLOB fiyatları. Polymarket verisiyle edge'ini hesapla. Ücretsiz.",
   keywords: [
     "prediction market",
     "tahmin piyasası",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paralan — Prediction Market Intelligence",
     description:
-      "Tahmin piyasalarında edge'ini bul. Gerçek zamanlı veri, risk analizi, arbitraj tespiti, Kelly hesaplayıcı.",
+      "Tahmin piyasalarında edge'ini hesapla. Gerçek zamanlı veri, risk analizi, arbitraj tespiti, Kelly hesaplayıcı.",
     url: SITE_URL,
     type: "website",
     siteName: "Paralan.trade",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paralan — Prediction Market Intelligence",
     description:
-      "Tahmin piyasalarında edge'ini bul. Risk skoru, arbitraj, Kelly criterion — canlı.",
+      "Tahmin piyasalarında edge'ini hesapla. Risk skoru, arbitraj, Kelly criterion — canlı.",
   },
   robots: {
     index: true,

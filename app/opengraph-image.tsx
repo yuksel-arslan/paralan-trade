@@ -58,7 +58,7 @@ export default function Image() {
               color: "#00d4aa",
             }}
           >
-            edge'ini bul.
+            edge'ini hesapla.
           </div>
         </div>
 
